@@ -43,7 +43,7 @@ pipeline {
                         bat """
                             curl --upload-file "${warFilePath}" \
                             --user ${TOMCAT_USER}:${TOMCAT_PASSWORD} \
-                            "${TOMCAT_URL}/manager/text/deploy?path=/DevOpsEXP5&update=true"
+                            "${TOMCAT_URL}/manager/text/deploy?path=/EXP5&update=true"
                         """
                     } else {
                         error('WAR file not found! Build might have failed.')
