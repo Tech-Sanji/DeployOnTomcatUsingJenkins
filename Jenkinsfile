@@ -9,7 +9,7 @@ pipeline {
     
     environment {
         // Define environment variables for Tomcat
-        WAR_FILE = 'target/Exp5.war' // Path to the generated WAR file (use forward slashes)
+        WAR_FILE = 'target\\roshambo.war' // Path to the generated WAR file (use forward slashes)
         TOMCAT_URL = 'http://localhost:6060' // Tomcat server URL
         TOMCAT_USER = 'rumaan' // Tomcat Manager username
         TOMCAT_PASSWORD = 'shaikh' // Tomcat Manager password
@@ -31,8 +31,7 @@ pipeline {
         stage('Deploy to Tomcat') {
             steps {
                 script {
-		    //in this case it will be C:\ProgramData\Jenkins\.jenkins\workspace\war-deploy-jenkins-tomcat
-                    def warFilePath = "${WORKSPACE}/${WAR_FILE}" // Use forward slashes in path
+                    def warFilePath = "${WORKSPACE}\\${WAR_FILE}" // Use forward slashes in path
                     echo "WAR file path: ${warFilePath}"
                     
                     // Check if the WAR file exists before deploying
@@ -43,7 +42,7 @@ pipeline {
                         bat """
                             curl --upload-file "${warFilePath}" \
                             --user ${TOMCAT_USER}:${TOMCAT_PASSWORD} \
-                            "${TOMCAT_URL}/manager/text/deploy?path=/Exp5&update=true"
+                            "${TOMCAT_URL}/manager/text/deploy?path=/roshambo&update=true"
                         """
                     } else {
                         error('WAR file not found! Build might have failed.')
