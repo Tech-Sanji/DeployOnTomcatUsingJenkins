@@ -34,21 +34,18 @@ pipeline {
         } 
  
         stage('Deploy to Tomcat') { 
-            steps { 
-                script { 
-                    def warFilePath = "${WORKSPACE}\\${WAR_FILE}" 
-                    if (fileExists(warFilePath)) { 
-                        bat """ 
-                            curl --upload-file "${warFilePath}" ^ 
-                            --user ${TOMCAT_USER}:${TOMCAT_PASSWORD} ^
-"${TOMCAT_URL}/manager/text/deploy?path=/roshambo&update=true" 
-                        """ 
-                    } else { 
-                        error('WAR file not found! Build might have failed.') 
-                    } 
-                } 
-            } 
+    steps { 
+        script { 
+            def warFilePath = "${WORKSPACE}\\target\\roshambo.war"
+            if (fileExists(warFilePath)) {
+                bat "curl --upload-file \"${warFilePath}\" --user ${TOMCAT_USER}:${TOMCAT_PASSWORD} \"${TOMCAT_URL}/manager/text/deploy?path=/roshambo&update=true\""
+            } else {
+                error('WAR file not found! Build might have failed.')
+            }
         } 
+    } 
+}
+
     } 
  
     post { 
