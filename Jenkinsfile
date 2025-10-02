@@ -9,8 +9,8 @@ pipeline {
     environment { 
         WAR_FILE = 'target/roshambo.war' 
         TOMCAT_URL = 'http://localhost:6060' 
-        TOMCAT_USER = 'ElCucuyYan' 
-        TOMCAT_PASSWORD = 'Ruman$_123' 
+        TOMCAT_USER = 'rumaan' 
+        TOMCAT_PASSWORD = 'shaikh' 
     } 
  
     stages { 
