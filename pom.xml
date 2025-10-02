@@ -10,7 +10,7 @@
   <packaging>war</packaging>
 
   <name>roshambo web application</name>
-  <url>http://www.mcnz.com</url>
+  <url>http://localhost:6060/EXP5</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
