@@ -2,22 +2,22 @@ pipeline {
     agent any 
  
     tools { 
-        jdk 'JDK17' 
+        jdk 'JDK21' 
         maven 'MAVEN3' 
     } 
  
     environment { 
         WAR_FILE = 'target/roshambo.war' 
         TOMCAT_URL = 'http://localhost:6060' 
-        TOMCAT_USER = 'qarq90' 
-        TOMCAT_PASSWORD = 'qwertyuiop' 
+        TOMCAT_USER = 'ElCucuyYan' 
+        TOMCAT_PASSWORD = 'Ruman$_123' 
     } 
  
     stages { 
         stage('Checkout') { 
             steps { 
                 git branch: 'main', url: 
-'https://github.com/FarzanaFirozKhan/DeployOnTomcatUsingJenkins.git' 
+'https://github.com/Tech-Sanji/DeployOnTomcatUsingJenkins.git' 
             } 
         } 
  
