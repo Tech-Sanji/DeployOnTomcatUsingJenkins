@@ -7,7 +7,7 @@ pipeline {
     } 
  
     environment { 
-        Workspace = 'C:\Users\Rumaan\.jenkins\workspace\Exp5'
+        WORKSPACE = 'C:\Users\Rumaan\.jenkins\workspace\Exp5'
         WAR_FILE = 'target/roshambo.war' 
         TOMCAT_URL = 'http://localhost:6060' 
         TOMCAT_USER = 'rumaan' 
