@@ -7,7 +7,7 @@ pipeline {
     } 
  
     environment { 
-        WAR_FILE = 'target/roshambo.war' 
+        WAR_FILE = 'target\\roshambo.war' 
         TOMCAT_URL = 'http://localhost:6060' 
         TOMCAT_USER = 'rumaan' 
         TOMCAT_PASSWORD = 'shaikh' 
@@ -36,12 +36,11 @@ pipeline {
         stage('Deploy to Tomcat') { 
             steps { 
                 script { 
-                    def warFilePath = "${WORKSPACE}/${WAR_FILE}" 
+                    def warFilePath = "${WORKSPACE}\\${WAR_FILE}" 
                     if (fileExists(warFilePath)) { 
                         bat """ 
                             curl --upload-file "${warFilePath}" ^ 
-                            --user ${TOMCAT_USER}:${TOMCAT_PASSWORD} ^ 
-                            
+                            --user ${TOMCAT_USER}:${TOMCAT_PASSWORD} ^
 "${TOMCAT_URL}/manager/text/deploy?path=/roshambo&update=true" 
                         """ 
                     } else { 
